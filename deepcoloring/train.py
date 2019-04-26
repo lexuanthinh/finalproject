@@ -3,7 +3,7 @@ import sys
 import numpy
 import torch
 
-from halo_loss import halo_loss
+from .halo_loss import halo_loss
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

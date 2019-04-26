@@ -32,7 +32,7 @@ def build_halo_mask(fixed_depth=30, margin=21, min_fragment=10):
 
     def f(label):
         """
-        
+
         :param label: batch of instance levels each instance must have unique id
         :return:  labels, masks and object_lists used by halo loss
         """
@@ -51,16 +51,16 @@ def build_halo_mask(fixed_depth=30, margin=21, min_fragment=10):
 
         labels = torch.from_numpy(back).float().to(device)
         masks = F.conv2d(labels, sel, groups=fixed_depth, padding=margin / 2)
-        
+
         masks[masks > 0] = 1.
         masks[labels > 0] = 2.
         masks[:, 0, :, :] = 1.
-        
+
         weights=masks.sum(-1,keepdim=True).sum(-2,keepdim=True)
         weights[weights==0.]=1.
-        
+
         masks = masks/weights
-        
+
         return labels, masks, object_list
 
     return f
@@ -73,7 +73,7 @@ def halo_loss(predicted, labels, weights, obj, k_neg=7.):
     :param labels: ground truth binary mask for each object
     :param weights: weights for each object and it's margin
     :param obj: list for each sample indexes of labels, containing any meaningful information
-    :param k_neg: negative positioning influance 
+    :param k_neg: negative positioning influance
     :return: torch variable contains calculation graph
     """
 

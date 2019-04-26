@@ -288,7 +288,7 @@ def visualize(x_np, y_np, min_point=40, draw_text=True, cmap="Set1"):
 
         cmap = matplotlib.colors.LinearSegmentedColormap.from_list('xxx',
                                                                    [color_map[color_index], color_map[color_index2]])
-        ax[index / 3, index % 3].imshow(y_np[index, :, :], vmin=0, vmax=1, cmap=cmap)
+        ax[index // 3, index % 3].imshow(y_np[index, :, :], vmin=0, vmax=1, cmap=cmap)
 
     return f1, f2
 

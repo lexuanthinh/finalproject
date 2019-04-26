@@ -22,11 +22,11 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def evaluate(data, model, min_points):
     """
-    Estimates the 
-    :param data: 
-    :param model: 
-    :param min_points: 
-    :return: 
+    Estimates the
+    :param data:
+    :param model:
+    :param min_points:
+    :return:
     """
     assert isinstance(data, Reader)
 
