@@ -1,3 +1,11 @@
 {
-    "python.pythonPath": "C:\\Users\\thinhlx\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+    "python.pythonPath": "C:\\Python\\Python37\\python.exe",
+    "python.linting.pylintArgs": [
+        "--errors-only",
+        "--generated-members=numpy.* ,torch.* ,cv2.* , cv.*"
+        ],
+        "git.ignoreLimitWarning": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.mypyEnabled": true,
+        "python.linting.enabled": true
 }

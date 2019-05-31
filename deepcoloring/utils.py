@@ -269,6 +269,8 @@ def visualize(x_np, y_np, min_point=40, draw_text=True, cmap="Set1"):
     instances = postprocess(y_np, min_point)
     picture = numpy.argmax(y_np, 0)
     picture[0 == instances] = 0
+    num_obj = 1
+    obj_list = []
 
     for obj in numpy.unique(instances)[1:]:
         innermask = numpy.zeros_like(instances)
@@ -277,6 +279,8 @@ def visualize(x_np, y_np, min_point=40, draw_text=True, cmap="Set1"):
         r, c = numpy.unravel_index(distance.argmax(), distance.shape)
         if draw_text:
             ax2.text(c - 3, r + 3, r'{}'.format(int(obj)), fontdict=font)
+            obj_list.append(num_obj)
+            num_obj = num_obj + 1
 
     ax2.imshow(picture, cmap=matplotlib.colors.ListedColormap(color_map[:y_np.shape[0]]))
 
@@ -290,7 +294,9 @@ def visualize(x_np, y_np, min_point=40, draw_text=True, cmap="Set1"):
                                                                    [color_map[color_index], color_map[color_index2]])
         ax[index // 3, index % 3].imshow(y_np[index, :, :], vmin=0, vmax=1, cmap=cmap)
 
-    return f1, f2
+    cnt = len(obj_list)
+
+    return f1, f2, cnt
 
 
 def best_dice(l_a, l_b):

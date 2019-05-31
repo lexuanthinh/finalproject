@@ -70,7 +70,7 @@ if __name__ == "__main__":
                         dest="basepath",
                         action=ReadableDir,
                         help="Path to CVPPP A1 dataset folder",
-                        default="/media/hpc-4_Raid/vkulikov/CVPPP2017_LSC_training/training/A1/",
+                        default="/CVPPP2017_LSC_training/training/A1/",
                         required=True)
 
     args = parser.parse_args()
