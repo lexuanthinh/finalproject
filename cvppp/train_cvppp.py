@@ -1,7 +1,9 @@
 directory = ""
 if __name__ == '__main__':
-    from os import sys, path
-
+    # from os import sys, path
+    import os
+    import sys
+    from os import path
     directory = path.dirname(path.abspath(__file__))
     sys.path.append(path.dirname(directory))
 
